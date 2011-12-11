@@ -13,4 +13,5 @@ findsubseq xs ys = if sum (recursionbaby xs (tail xs)) >= sum (recursionbaby ys 
                  else findsubseq ys (init ys)
 
 bigsubseq :: [Integer] -> Integer
-bigsubseq xs = sum(findsubseq xs (init xs))
+bigsubseq xs = if sum(findsubseq xs (init xs)) > 0 then sum(findsubseq xs (init xs))
+             else 0 --die leere Teilfolge ist immer enthalten
